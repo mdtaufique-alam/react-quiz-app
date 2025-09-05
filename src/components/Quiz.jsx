@@ -178,11 +178,37 @@ const Quiz = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="card-gradient text-center max-w-md mx-auto">
-          <Loader2 className="w-12 h-12 text-primary-500 animate-spin mx-auto mb-4" />
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">Loading Questions...</h2>
-          <p className="text-gray-600">Please wait while we prepare your quiz</p>
+      <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+        {/* Background Design - Same as Home */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+          {/* Geometric shapes */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-32 left-20 w-40 h-40 bg-purple-100 rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-100 rounded-full opacity-25 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+          
+          {/* Floating elements */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full opacity-40 animate-bounce" style={{animationDuration: '3s'}}></div>
+          <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full opacity-50 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-purple-400 rounded-full opacity-30 animate-bounce" style={{animationDuration: '5s', animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl fade-in relative z-10">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8">
+            <div className="text-center">
+              <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Loading Questions...</h2>
+              <p className="text-gray-600">Please wait while we prepare your quiz</p>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -190,18 +216,44 @@ const Quiz = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4">
-        <div className="card-gradient text-center max-w-md mx-auto">
-          <div className="text-red-500 text-6xl mb-4">⚠️</div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">Error Loading Quiz</h2>
-          <p className="text-gray-600 mb-6">{error}</p>
-          <div className="space-y-3">
-            <button onClick={loadQuestions} className="btn-primary w-full">
-              🔄 Try Again
-            </button>
-            <button onClick={goHome} className="btn-secondary w-full">
-              🏠 Go Home
-            </button>
+      <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+        {/* Background Design - Same as Home */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+          {/* Geometric shapes */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-32 left-20 w-40 h-40 bg-purple-100 rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-100 rounded-full opacity-25 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+          
+          {/* Floating elements */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full opacity-40 animate-bounce" style={{animationDuration: '3s'}}></div>
+          <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full opacity-50 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-purple-400 rounded-full opacity-30 animate-bounce" style={{animationDuration: '5s', animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl fade-in relative z-10">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8">
+            <div className="text-center">
+              <div className="text-red-500 text-6xl mb-4">⚠️</div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Error Loading Quiz</h2>
+              <p className="text-gray-600 mb-6">{error}</p>
+              <div className="space-y-3">
+                <button onClick={loadQuestions} className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200">
+                  🔄 Try Again
+                </button>
+                <button onClick={goHome} className="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl shadow-sm hover:shadow-md transition-all duration-200">
+                  🏠 Go Home
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -210,14 +262,40 @@ const Quiz = () => {
 
   if (!quizStarted || questions.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="card-gradient text-center max-w-md mx-auto">
-          <div className="text-6xl mb-4">🧠</div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">Ready to Start?</h2>
-          <p className="text-gray-600 mb-6">Click the button below to begin your quiz</p>
-          <button onClick={loadQuestions} className="btn-primary">
-            🚀 Start Quiz
-          </button>
+      <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+        {/* Background Design - Same as Home */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+          {/* Geometric shapes */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-32 left-20 w-40 h-40 bg-purple-100 rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-100 rounded-full opacity-25 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+          
+          {/* Floating elements */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full opacity-40 animate-bounce" style={{animationDuration: '3s'}}></div>
+          <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full opacity-50 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-purple-400 rounded-full opacity-30 animate-bounce" style={{animationDuration: '5s', animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl fade-in relative z-10">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8">
+            <div className="text-center">
+              <div className="text-6xl mb-4">🧠</div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">Ready to Start?</h2>
+              <p className="text-gray-600 mb-6">Click the button below to begin your quiz</p>
+              <button onClick={loadQuestions} className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-lg">
+                🚀 Start Quiz
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -228,10 +306,32 @@ const Quiz = () => {
   const hasAnswered = selectedAnswers[currentQuestion.id] !== undefined
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <div className="flex-1 flex flex-col max-w-md md:max-w-2xl lg:max-w-4xl mx-auto w-full" role="main" aria-label="Quiz Application">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Background Design - Same as Home */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        {/* Geometric shapes */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 left-20 w-40 h-40 bg-purple-100 rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-100 rounded-full opacity-25 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full opacity-40 animate-bounce" style={{animationDuration: '3s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full opacity-50 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-purple-400 rounded-full opacity-30 animate-bounce" style={{animationDuration: '5s', animationDelay: '2s'}}></div>
+      </div>
+      
+      <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl fade-in relative z-10" role="main" aria-label="Quiz Application">
         {/* Desktop Container */}
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 m-4 md:m-6 flex flex-col h-full">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8 flex flex-col h-full">
           <div className="flex-1 flex flex-col">
         {/* Skip Link for Screen Readers */}
         <a 

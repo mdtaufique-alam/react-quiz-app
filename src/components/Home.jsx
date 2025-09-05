@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Brain, Trophy, Clock, Users, Settings } from 'lucide-react'
+import { Brain, Trophy, Clock, Users, Settings, Target, Timer, BarChart3 } from 'lucide-react'
 import DifficultySelector from './DifficultySelector'
 
 const Home = () => {
@@ -17,8 +17,30 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-50">
-      <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl fade-in">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Background Design */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        {/* Geometric shapes */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 left-20 w-40 h-40 bg-purple-100 rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-100 rounded-full opacity-25 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full opacity-40 animate-bounce" style={{animationDuration: '3s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full opacity-50 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-purple-400 rounded-full opacity-30 animate-bounce" style={{animationDuration: '5s', animationDelay: '2s'}}></div>
+      </div>
+      
+      <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl fade-in relative z-10">
         {/* Desktop Container */}
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8">
           <div className="max-w-md mx-auto md:max-w-none">
@@ -59,19 +81,19 @@ const Home = () => {
           
           {/* Additional features for desktop */}
           <div className="hidden md:block bg-gray-50 rounded-xl border border-gray-200 p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-5 h-5 bg-blue-600 rounded-full mx-auto mb-2"></div>
+            <Target className="w-5 h-5 text-blue-600 mx-auto mb-2" />
             <h3 className="text-xs font-medium text-gray-700 mb-1">Smart</h3>
             <p className="text-xs text-gray-500">Scoring</p>
           </div>
           
           <div className="hidden md:block bg-gray-50 rounded-xl border border-gray-200 p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-5 h-5 bg-blue-600 rounded-full mx-auto mb-2"></div>
+            <Timer className="w-5 h-5 text-blue-600 mx-auto mb-2" />
             <h3 className="text-xs font-medium text-gray-700 mb-1">Timer</h3>
             <p className="text-xs text-gray-500">Per question</p>
           </div>
           
           <div className="hidden md:block bg-gray-50 rounded-xl border border-gray-200 p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-5 h-5 bg-blue-600 rounded-full mx-auto mb-2"></div>
+            <BarChart3 className="w-5 h-5 text-blue-600 mx-auto mb-2" />
             <h3 className="text-xs font-medium text-gray-700 mb-1">Levels</h3>
             <p className="text-xs text-gray-500">Difficulty</p>
           </div>

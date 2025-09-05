@@ -15,14 +15,40 @@ const Results = () => {
   
   if (!questions.length) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="card-gradient text-center max-w-md mx-auto">
-          <div className="text-6xl mb-4">🤔</div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">No Results Found</h2>
-          <p className="text-gray-600 mb-6">It looks like you haven't completed a quiz yet.</p>
-          <button onClick={() => navigate('/')} className="btn-primary">
-            🏠 Go Home
-          </button>
+      <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+        {/* Background Design - Same as Home */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+          {/* Geometric shapes */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-32 left-20 w-40 h-40 bg-purple-100 rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-100 rounded-full opacity-25 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+          
+          {/* Floating elements */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full opacity-40 animate-bounce" style={{animationDuration: '3s'}}></div>
+          <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full opacity-50 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-purple-400 rounded-full opacity-30 animate-bounce" style={{animationDuration: '5s', animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl fade-in relative z-10">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8">
+            <div className="text-center">
+              <div className="text-6xl mb-4">🤔</div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">No Results Found</h2>
+              <p className="text-gray-600 mb-6">It looks like you haven't completed a quiz yet.</p>
+              <button onClick={() => navigate('/')} className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 text-lg">
+                🏠 Go Home
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -54,10 +80,32 @@ const Results = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <div className="flex-1 flex flex-col max-w-md md:max-w-2xl lg:max-w-4xl mx-auto w-full">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Background Design - Same as Home */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        {/* Geometric shapes */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 left-20 w-40 h-40 bg-purple-100 rounded-full opacity-15 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-100 rounded-full opacity-25 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full opacity-40 animate-bounce" style={{animationDuration: '3s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-indigo-400 rounded-full opacity-50 animate-bounce" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-purple-400 rounded-full opacity-30 animate-bounce" style={{animationDuration: '5s', animationDelay: '2s'}}></div>
+      </div>
+      
+      <div className="w-full max-w-md md:max-w-2xl lg:max-w-4xl fade-in relative z-10">
         {/* Desktop Container */}
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 m-4 md:m-6 flex flex-col h-full">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8 flex flex-col h-full">
           <div className="flex-1 flex flex-col">
         {/* Blue Header - Responsive */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 md:px-8 py-8 rounded-t-2xl shadow-lg">
@@ -70,12 +118,13 @@ const Results = () => {
               <ArrowLeft className="w-5 h-5 text-white" />
             </button>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                <Trophy className="w-4 h-4 text-white" />
-              </div>
-              <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+              <button
+                onClick={restartQuiz}
+                className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-200"
+                aria-label="Restart quiz"
+              >
                 <RotateCcw className="w-4 h-4 text-white" />
-              </div>
+              </button>
             </div>
           </div>
           
@@ -181,8 +230,14 @@ const Results = () => {
 
         {/* Question Detail Modal - Minimalist */}
         {selectedQuestion !== null && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end z-50">
-            <div className="bg-white rounded-t-2xl w-full max-h-[70vh] overflow-hidden">
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            onClick={() => setSelectedQuestion(null)}
+          >
+            <div 
+              className="bg-white rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
               {/* Modal Header - Clean */}
               <div className="p-4 border-b border-primary-100">
                 <div className="flex items-center justify-between">
@@ -207,7 +262,7 @@ const Results = () => {
                 </div>
               </div>
               
-              <div className="p-4 overflow-y-auto max-h-[calc(70vh-80px)]">
+              <div className="p-6 overflow-y-auto max-h-[calc(80vh-120px)]">
                 {(() => {
                   const question = questions[selectedQuestion]
                   const userAnswer = selectedAnswers[question.id]

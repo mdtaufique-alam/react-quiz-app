@@ -83,21 +83,27 @@ const HighScores = ({ currentScore, totalQuestions, difficulty, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+    <div 
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary-500 to-secondary-500 p-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Trophy className="w-8 h-8" />
               <div>
                 <h2 className="text-2xl font-bold">High Scores</h2>
-                <p className="text-primary-100">Your quiz achievements</p>
+                <p className="text-blue-100">Your quiz achievements</p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="text-white hover:text-gray-200 transition-colors"
+              className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-200"
             >
               ✕
             </button>
@@ -105,7 +111,7 @@ const HighScores = ({ currentScore, totalQuestions, difficulty, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+        <div className="p-6 overflow-y-auto max-h-[calc(85vh-200px)]">
           {isNewHighScore && (
             <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
               <div className="flex items-center gap-3">
@@ -141,20 +147,20 @@ const HighScores = ({ currentScore, totalQuestions, difficulty, onClose }) => {
               {scores.map((score, index) => (
                 <div
                   key={score.timestamp}
-                  className={`p-4 rounded-xl border-2 transition-all ${
-                    index === 0 ? 'border-yellow-300 bg-yellow-50' : 'border-gray-200 bg-white'
+                  className={`p-4 rounded-xl border-2 transition-all hover:shadow-md ${
+                    index === 0 ? 'border-yellow-300 bg-yellow-50 shadow-lg' : 'border-gray-200 bg-white hover:border-blue-200'
                   }`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`p-2 rounded-lg bg-gradient-to-r ${getRankColor(index)}`}>
+                    <div className={`p-3 rounded-xl bg-gradient-to-r ${getRankColor(index)} shadow-sm`}>
                       {getRankIcon(index)}
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="font-bold text-gray-800">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="font-bold text-gray-800 text-lg">
                           #{index + 1}
                         </span>
-                        <span className="text-sm bg-gray-200 text-gray-700 px-2 py-1 rounded-full capitalize">
+                        <span className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full capitalize font-medium">
                           {score.difficulty}
                         </span>
                       </div>
@@ -166,8 +172,8 @@ const HighScores = ({ currentScore, totalQuestions, difficulty, onClose }) => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-sm text-gray-600">Score</div>
-                      <div className="text-xl font-bold text-gray-800">{score.score}</div>
+                      <div className="text-sm text-gray-600 font-medium">Score</div>
+                      <div className="text-2xl font-bold text-blue-600">{score.score}</div>
                     </div>
                   </div>
                 </div>
@@ -180,7 +186,7 @@ const HighScores = ({ currentScore, totalQuestions, difficulty, onClose }) => {
         <div className="p-6 bg-gray-50 border-t">
           <button
             onClick={onClose}
-            className="w-full btn-primary"
+            className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
           >
             Close
           </button>
