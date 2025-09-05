@@ -1,0 +1,174 @@
+{
+  "resultsPage": {
+    "header": {
+      "title": "Results",
+      "showBackButton": true,
+      "showTrophyIcon": true,
+      "showRestartIcon": true
+    },
+    "achievement": {
+      "icon": "trophy",
+      "title": "Incredible!",
+      "subtitle": "You're a true expert! 🏆",
+      "message": "Great job on completing the quiz!"
+    },
+    "stats": {
+      "correct": 5,
+      "total": 9,
+      "percentage": 56,
+      "smartScore": 14,
+      "timeTaken": "2m 45s",
+      "difficulty": "Easy",
+      "category": "Geography"
+    },
+    "questionReview": {
+      "title": "Question Review",
+      "questions": [
+        {
+          "id": 1,
+          "status": "correct",
+          "question": "What is the capital of France?",
+          "userAnswer": "Paris",
+          "correctAnswer": "Paris",
+          "options": ["London", "Berlin", "Paris", "Madrid"],
+          "explanation": "Paris is the capital and most populous city of France.",
+          "timeSpent": "15s",
+          "points": 10
+        },
+        {
+          "id": 2,
+          "status": "correct",
+          "question": "Which planet is known as the Red Planet?",
+          "userAnswer": "Mars",
+          "correctAnswer": "Mars",
+          "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+          "explanation": "Mars is called the Red Planet due to its reddish appearance from iron oxide on its surface.",
+          "timeSpent": "12s",
+          "points": 10
+        },
+        {
+          "id": 3,
+          "status": "incorrect",
+          "question": "What is the largest ocean on Earth?",
+          "userAnswer": "Atlantic Ocean",
+          "correctAnswer": "Pacific Ocean",
+          "options": ["Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Arctic Ocean"],
+          "explanation": "The Pacific Ocean is the largest and deepest ocean, covering about one-third of Earth's surface.",
+          "timeSpent": "18s",
+          "points": 0,
+          "suggestion": "Remember that the Pacific Ocean covers about 46% of the world's water surface."
+        },
+        {
+          "id": 4,
+          "status": "incorrect",
+          "question": "Who painted the Mona Lisa?",
+          "userAnswer": "Vincent van Gogh",
+          "correctAnswer": "Leonardo da Vinci",
+          "options": ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Michelangelo"],
+          "explanation": "The Mona Lisa was painted by Leonardo da Vinci between 1503 and 1519.",
+          "timeSpent": "20s",
+          "points": 0,
+          "suggestion": "Leonardo da Vinci was a Renaissance polymath known for both art and scientific studies."
+        },
+        {
+          "id": 5,
+          "status": "correct",
+          "question": "What is the chemical symbol for gold?",
+          "userAnswer": "Au",
+          "correctAnswer": "Au",
+          "options": ["Go", "Gd", "Au", "Ag"],
+          "explanation": "Au comes from the Latin word 'aurum' meaning gold.",
+          "timeSpent": "8s",
+          "points": 10
+        },
+        {
+          "id": 6,
+          "status": "incorrect",
+          "question": "Which year did World War II end?",
+          "userAnswer": "1944",
+          "correctAnswer": "1945",
+          "options": ["1944", "1945", "1946", "1943"],
+          "explanation": "World War II ended in 1945 with Japan's surrender in September.",
+          "timeSpent": "25s",
+          "points": 0,
+          "suggestion": "Remember the key events: Germany surrendered in May 1945, Japan in September 1945."
+        },
+        {
+          "id": 7,
+          "status": "incorrect",
+          "question": "What is the smallest country in the world?",
+          "userAnswer": "Monaco",
+          "correctAnswer": "Vatican City",
+          "options": ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
+          "explanation": "Vatican City is the smallest country with an area of just 0.17 square miles.",
+          "timeSpent": "22s",
+          "points": 0,
+          "suggestion": "Vatican City is entirely enclosed by Rome, Italy and is the spiritual center of Catholicism."
+        },
+        {
+          "id": 8,
+          "status": "correct",
+          "question": "How many continents are there?",
+          "userAnswer": "7",
+          "correctAnswer": "7",
+          "options": ["5", "6", "7", "8"],
+          "explanation": "The seven continents are Asia, Africa, North America, South America, Antarctica, Europe, and Australia/Oceania.",
+          "timeSpent": "10s",
+          "points": 10
+        },
+        {
+          "id": 9,
+          "status": "correct",
+          "question": "What is the fastest land animal?",
+          "userAnswer": "Cheetah",
+          "correctAnswer": "Cheetah",
+          "options": ["Lion", "Cheetah", "Leopard", "Tiger"],
+          "explanation": "Cheetahs can reach speeds up to 70 mph (112 km/h) in short bursts.",
+          "timeSpent": "14s",
+          "points": 10
+        }
+      ]
+    },
+    "sessionInfo": {
+      "date": "2024-03-26",
+      "time": "14:30",
+      "sessionId": "quiz_session_001",
+      "quizType": "Geography - Easy",
+      "attempt": 1
+    },
+    "actions": {
+      "primaryButton": {
+        "text": "Take Another Quiz",
+        "action": "startNewQuiz",
+        "style": "primary"
+      },
+      "secondaryButton": {
+        "text": "Back to Home",
+        "action": "goHome",
+        "style": "secondary"
+      },
+      "shareButton": {
+        "text": "Share Results",
+        "action": "shareResults",
+        "style": "outline"
+      }
+    },
+    "performance": {
+      "grade": "C+",
+      "improvement": {
+        "strongAreas": ["Science", "General Knowledge"],
+        "needsWork": ["History", "Geography"],
+        "suggestions": [
+          "Review world geography basics",
+          "Study major historical events and dates",
+          "Practice with more challenging questions"
+        ]
+      }
+    },
+    "streakInfo": {
+      "currentStreak": 3,
+      "bestStreak": 7,
+      "totalQuizzes": 15
+    }
+  }
+}

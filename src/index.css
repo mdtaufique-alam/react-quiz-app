@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 min-h-screen text-gray-800;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Blue theme button styles */
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 tap-feedback focus-ring;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-6 rounded-lg transition-all duration-200 tap-feedback focus-ring;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent hover:bg-gray-50 text-gray-600 font-medium py-2 px-4 rounded-lg transition-all duration-200 tap-feedback focus-ring;
+  }
+  
+  /* Clean card styles */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-200 p-6;
+  }
+  
+  .card-minimal {
+    @apply bg-white rounded-xl border border-gray-200 p-4;
+  }
+  
+  /* Mobile-optimized option buttons */
+  .option-button {
+    @apply w-full p-4 text-left rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 cursor-pointer font-medium tap-feedback focus-ring;
+  }
+  
+  .option-button.selected {
+    @apply border-blue-500 bg-blue-50 text-blue-700;
+  }
+  
+  .option-button.correct {
+    @apply border-success-500 bg-success-50 text-success-700;
+  }
+  
+  .option-button.incorrect {
+    @apply border-error-500 bg-error-50 text-error-700;
+  }
+
+  /* Animation classes */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+  
+  .pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Micro-interactions */
+  .tap-feedback {
+    transition: transform 0.1s ease-out;
+  }
+  
+  .tap-feedback:active {
+    transform: scale(0.98);
+  }
+  
+  /* Smooth focus states */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

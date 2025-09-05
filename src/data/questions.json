@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "question": "What is the capital of France?",
+    "options": ["London", "Berlin", "Paris", "Madrid"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "category": "Geography"
+  },
+  {
+    "id": 2,
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Science"
+  },
+  {
+    "id": 3,
+    "question": "Who painted the Mona Lisa?",
+    "options": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "category": "Art"
+  },
+  {
+    "id": 4,
+    "question": "What is the largest mammal in the world?",
+    "options": ["African Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Science"
+  },
+  {
+    "id": 5,
+    "question": "In which year did World War II end?",
+    "options": ["1944", "1945", "1946", "1947"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "category": "History"
+  },
+  {
+    "id": 6,
+    "question": "What is the chemical symbol for gold?",
+    "options": ["Go", "Gd", "Au", "Ag"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "category": "Science"
+  },
+  {
+    "id": 7,
+    "question": "Which programming language was created by Brendan Eich?",
+    "options": ["Python", "Java", "JavaScript", "C++"],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "category": "Technology"
+  },
+  {
+    "id": 8,
+    "question": "What is the smallest country in the world?",
+    "options": ["Monaco", "Vatican City", "Liechtenstein", "San Marino"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "category": "Geography"
+  },
+  {
+    "id": 9,
+    "question": "Who wrote the novel '1984'?",
+    "options": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "H.G. Wells"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "category": "Literature"
+  },
+  {
+    "id": 10,
+    "question": "What is the speed of light in a vacuum?",
+    "options": ["299,792,458 m/s", "300,000,000 m/s", "299,000,000 m/s", "301,000,000 m/s"],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "category": "Science"
+  }
+]
