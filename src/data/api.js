@@ -87,12 +87,14 @@ const decodeHtmlEntities = (text) => {
   return textarea.value
 }
 
+// Import local questions directly
+import localQuestions from './questions.json'
+
 // Fallback to local questions if API fails
 export const getLocalQuestions = async () => {
   try {
-    const response = await fetch('/src/data/questions.json')
-    const questions = await response.json()
-    return questions
+    console.log('Loading local questions...')
+    return localQuestions
   } catch (error) {
     console.error('Error loading local questions:', error)
     throw error
@@ -109,9 +111,24 @@ export const getQuestions = async (amount = 10, difficulty = 'medium', category 
   } catch (error) {
     console.log('API failed, falling back to local questions:', error.message)
     try {
-      const questions = await getLocalQuestions()
+      const allQuestions = await getLocalQuestions()
       console.log('Successfully loaded local questions')
-      return questions.slice(0, amount) // Limit to requested amount
+      
+      // Filter questions by difficulty if specified
+      let filteredQuestions = allQuestions
+      if (difficulty && difficulty !== 'any') {
+        filteredQuestions = allQuestions.filter(q => q.difficulty === difficulty)
+      }
+      
+      // If we don't have enough questions of the specified difficulty, use all questions
+      if (filteredQuestions.length < amount) {
+        console.log(`Not enough ${difficulty} questions, using all available questions`)
+        filteredQuestions = allQuestions
+      }
+      
+      // Shuffle and limit to requested amount
+      const shuffled = filteredQuestions.sort(() => Math.random() - 0.5)
+      return shuffled.slice(0, amount)
     } catch (localError) {
       console.error('Both API and local questions failed:', localError)
       throw new Error('Unable to load questions. Please check your internet connection and try again.')

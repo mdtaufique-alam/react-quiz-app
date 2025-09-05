@@ -78,5 +78,85 @@
     "correctAnswer": 0,
     "difficulty": "hard",
     "category": "Science"
+  },
+  {
+    "id": 11,
+    "question": "What is 2 + 2?",
+    "options": ["3", "4", "5", "6"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Mathematics"
+  },
+  {
+    "id": 12,
+    "question": "Which country has the most natural lakes?",
+    "options": ["Russia", "Canada", "United States", "Finland"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "category": "Geography"
+  },
+  {
+    "id": 13,
+    "question": "What is the hardest natural substance on Earth?",
+    "options": ["Gold", "Diamond", "Iron", "Platinum"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Science"
+  },
+  {
+    "id": 14,
+    "question": "Who composed 'The Four Seasons'?",
+    "options": ["Bach", "Mozart", "Vivaldi", "Beethoven"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "category": "Music"
+  },
+  {
+    "id": 15,
+    "question": "What is the largest organ in the human body?",
+    "options": ["Liver", "Brain", "Skin", "Heart"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "category": "Science"
+  },
+  {
+    "id": 16,
+    "question": "In which ocean is the Bermuda Triangle located?",
+    "options": ["Pacific", "Atlantic", "Indian", "Arctic"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Geography"
+  },
+  {
+    "id": 17,
+    "question": "What is the currency of Japan?",
+    "options": ["Won", "Yuan", "Yen", "Dong"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "category": "Geography"
+  },
+  {
+    "id": 18,
+    "question": "Which element has the chemical symbol 'O'?",
+    "options": ["Osmium", "Oxygen", "Gold", "Silver"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Science"
+  },
+  {
+    "id": 19,
+    "question": "What is the smallest prime number?",
+    "options": ["0", "1", "2", "3"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "category": "Mathematics"
+  },
+  {
+    "id": 20,
+    "question": "Who directed the movie 'Pulp Fiction'?",
+    "options": ["Martin Scorsese", "Quentin Tarantino", "Steven Spielberg", "Christopher Nolan"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "category": "Entertainment"
   }
 ]
