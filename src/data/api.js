@@ -18,9 +18,11 @@ export const fetchQuestionsFromAPI = async (amount = 10, difficulty = 'medium', 
     // Add random seed to get different questions each time
     url += `&timestamp=${Date.now()}`
 
-    // Add timeout to prevent hanging requests - 10 seconds should be plenty
+    console.log('Fetching from URL:', url)
+
+    // Add timeout to prevent hanging requests - 8 seconds should be plenty
     const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 10000)
+    const timeoutId = setTimeout(() => controller.abort(), 8000)
 
     const response = await fetch(url, {
       signal: controller.signal,
@@ -43,6 +45,7 @@ export const fetchQuestionsFromAPI = async (amount = 10, difficulty = 'medium', 
     }
     
     const data = await response.json()
+    console.log('API Response:', data)
     
     if (data.response_code !== 0) {
       const errorMessages = {
@@ -59,18 +62,26 @@ export const fetchQuestionsFromAPI = async (amount = 10, difficulty = 'medium', 
     }
     
     // Transform API data to our internal format
-    // The API returns correct answer separately, so we need to shuffle and track position
-    return data.results.map((question, index) => ({
-      id: index + 1,
-      question: decodeHtmlEntities(question.question),
-      options: [
+    return data.results.map((question, index) => {
+      // Shuffle options and track correct answer position
+      const allOptions = [
         ...question.incorrect_answers.map(decodeHtmlEntities),
         decodeHtmlEntities(question.correct_answer)
-      ].sort(() => Math.random() - 0.5), // Shuffle to make it more interesting
-      correctAnswer: question.incorrect_answers.length, // Track where correct answer ended up
-      difficulty: question.difficulty,
-      category: question.category
-    }))
+      ]
+      const shuffledOptions = allOptions.sort(() => Math.random() - 0.5)
+      const correctAnswerIndex = shuffledOptions.findIndex(option => 
+        option === decodeHtmlEntities(question.correct_answer)
+      )
+      
+      return {
+        id: `api_${Date.now()}_${index}`,
+        question: decodeHtmlEntities(question.question),
+        options: shuffledOptions,
+        correctAnswer: correctAnswerIndex,
+        difficulty: question.difficulty,
+        category: question.category
+      }
+    })
   } catch (error) {
     if (error.name === 'AbortError') {
       throw new Error('Request timed out. Please check your internet connection.')
@@ -262,30 +273,37 @@ export const getLocalQuestions = async () => {
   }
 }
 
-// Main function to get questions (using local questions for reliability)
+// Main function to get questions (API first, then local fallback)
 export const getQuestions = async (amount = 10, difficulty = 'medium', category = null) => {
   try {
-    console.log('Loading questions from local data...')
-    const allQuestions = await getLocalQuestions()
-    console.log('Successfully loaded local questions')
-    
-    // Filter questions by difficulty if specified
-    let filteredQuestions = allQuestions
-    if (difficulty && difficulty !== 'any') {
-      filteredQuestions = allQuestions.filter(q => q.difficulty === difficulty)
-    }
-    
-    // If we don't have enough questions of the specified difficulty, use all questions
-    if (filteredQuestions.length < amount) {
-      console.log(`Not enough ${difficulty} questions, using all available questions`)
-      filteredQuestions = allQuestions
-    }
-    
-    // Shuffle and limit to requested amount
-    const shuffled = filteredQuestions.sort(() => Math.random() - 0.5)
-    return shuffled.slice(0, amount)
+    console.log('Attempting to fetch questions from Open Trivia DB API...')
+    const questions = await fetchQuestionsFromAPI(amount, difficulty, category)
+    console.log('Successfully fetched questions from API')
+    return questions
   } catch (error) {
-    console.error('Failed to load questions:', error)
-    throw new Error('Unable to load questions. Please try again.')
+    console.log('API failed, falling back to local questions:', error.message)
+    try {
+      const allQuestions = await getLocalQuestions()
+      console.log('Successfully loaded local questions')
+      
+      // Filter questions by difficulty if specified
+      let filteredQuestions = allQuestions
+      if (difficulty && difficulty !== 'any') {
+        filteredQuestions = allQuestions.filter(q => q.difficulty === difficulty)
+      }
+      
+      // If we don't have enough questions of the specified difficulty, use all questions
+      if (filteredQuestions.length < amount) {
+        console.log(`Not enough ${difficulty} questions, using all available questions`)
+        filteredQuestions = allQuestions
+      }
+      
+      // Shuffle and limit to requested amount
+      const shuffled = filteredQuestions.sort(() => Math.random() - 0.5)
+      return shuffled.slice(0, amount)
+    } catch (localError) {
+      console.error('Both API and local questions failed:', localError)
+      throw new Error('Unable to load questions. Please check your internet connection and try again.')
+    }
   }
 }

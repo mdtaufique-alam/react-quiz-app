@@ -51,11 +51,15 @@ const Quiz = () => {
       const questionCounts = { easy: 7, medium: 9, hard: 10 }
       const count = questionCounts[selectedDifficulty]
       
+      console.log(`Loading ${count} ${selectedDifficulty} questions...`)
       const fetchedQuestions = await getQuestions(count, selectedDifficulty)
+      console.log(`Successfully loaded ${fetchedQuestions.length} questions`)
+      
       setQuestions(fetchedQuestions)
       setQuizStarted(true)
       setQuizStartTime(Date.now()) // Track when quiz actually starts
     } catch (err) {
+      console.error('Error loading questions:', err)
       // Show user-friendly error messages instead of technical ones
       setError(err.message)
     } finally {
