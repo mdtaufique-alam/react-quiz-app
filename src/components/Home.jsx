@@ -36,15 +36,16 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Clean Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50"></div>
+    <div className="min-h-screen tech-bg">
+      {/* Tech-Inspired Background */}
+      <div className="tech-grid"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-gray-50/80"></div>
       
       <div className="container-minimal relative z-10 py-16">
         {/* Scroll Prompt */}
         {showScrollPrompt && (
           <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
-            <div className="flex flex-col items-center text-gray-400">
+            <div className="flex flex-col items-center" style={{ color: 'var(--muted-text)' }}>
               <span className="text-sm mb-2">Scroll to explore</span>
               <ChevronDown className="w-6 h-6" />
             </div>
@@ -63,7 +64,7 @@ const Home = () => {
               <Brain className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-h1 mb-4">Quiz Challenge</h1>
-            <p className="text-body text-gray-600 max-w-2xl mx-auto">
+            <p className="text-body max-w-2xl mx-auto" style={{ color: 'var(--secondary-text)' }}>
               Test your knowledge with engaging questions across multiple difficulty levels. 
               Challenge yourself and track your progress.
             </p>
@@ -140,17 +141,17 @@ const Home = () => {
             <div className="text-center">
               <div className="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
               <h3 className="text-h3 mb-2">Choose Difficulty</h3>
-              <p className="text-body text-gray-600">Select from Easy, Medium, or Hard difficulty levels</p>
+              <p className="text-body" style={{ color: 'var(--secondary-text)' }}>Select from Easy, Medium, or Hard difficulty levels</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
               <h3 className="text-h3 mb-2">Answer Questions</h3>
-              <p className="text-body text-gray-600">Test your knowledge with carefully crafted questions</p>
+              <p className="text-body" style={{ color: 'var(--secondary-text)' }}>Test your knowledge with carefully crafted questions</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
               <h3 className="text-h3 mb-2">View Results</h3>
-              <p className="text-body text-gray-600">Get detailed feedback and track your progress</p>
+              <p className="text-body" style={{ color: 'var(--secondary-text)' }}>Get detailed feedback and track your progress</p>
             </div>
           </div>
         </div>

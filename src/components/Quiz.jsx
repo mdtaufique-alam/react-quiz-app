@@ -168,7 +168,8 @@ const Quiz = () => {
   // Fallback for debugging
   if (!loading && !error && questions.length === 0) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen tech-bg flex items-center justify-center">
+        <div className="tech-grid"></div>
         <div className="text-center">
           <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <div className="text-2xl">❓</div>
@@ -188,7 +189,8 @@ const Quiz = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen tech-bg flex items-center justify-center">
+        <div className="tech-grid"></div>
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-gray-200 border-t-gray-900 rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-body text-gray-600">Loading questions...</p>
@@ -199,7 +201,8 @@ const Quiz = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen tech-bg flex items-center justify-center">
+        <div className="tech-grid"></div>
         <div className="card-minimal text-center max-w-md">
           <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <div className="w-8 h-8 text-red-600">⚠️</div>
@@ -219,7 +222,8 @@ const Quiz = () => {
 
   if (!quizStarted) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen tech-bg flex items-center justify-center">
+        <div className="tech-grid"></div>
         <div className="container-minimal text-center">
           <div className="card-primary max-w-2xl mx-auto">
             <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -252,7 +256,8 @@ const Quiz = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen tech-bg">
+      <div className="tech-grid"></div>
       <div className="container-minimal py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

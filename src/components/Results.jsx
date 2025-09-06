@@ -23,7 +23,8 @@ const Results = () => {
   
   if (!questions.length) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen tech-bg flex items-center justify-center">
+        <div className="tech-grid"></div>
         <div className="card-minimal text-center max-w-md">
           <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <div className="text-4xl">🤔</div>
@@ -68,7 +69,8 @@ const Results = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen tech-bg">
+      <div className="tech-grid"></div>
       <div className="container-minimal py-8">
         {/* Header */}
         <div 
