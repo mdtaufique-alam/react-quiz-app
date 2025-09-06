@@ -2,90 +2,325 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Minimalist Design System Variables */
+:root {
+  --primary-bg: #FFFFFF;
+  --secondary-bg: #F5F5F5;
+  --dark-card: #1A1A1A;
+  --dark-card-secondary: #2A2A2A;
+  --text-dark: #1A1A1A;
+  --text-light: #FFFFFF;
+  --border-subtle: #E5E5E5;
+  --border-light: #F0F0F0;
+  --shadow-soft: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-medium: 0 4px 16px rgba(0,0,0,0.12);
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+}
+
 @layer base {
   html {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'SF Pro Display', sans-serif;
+    scroll-behavior: smooth;
   }
   
   body {
-    @apply bg-gray-50 min-h-screen text-gray-800;
+    background-color: var(--primary-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  *:focus {
+    outline: 2px solid var(--dark-card);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
-  /* Blue theme button styles */
-  .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 tap-feedback focus-ring;
+  /* Minimalist Card System */
+  .card-primary {
+    background: var(--dark-card);
+    color: var(--text-light);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-medium);
+    border: none;
+    padding: var(--spacing-md);
   }
   
-  .btn-secondary {
-    @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-6 rounded-lg transition-all duration-200 tap-feedback focus-ring;
-  }
-  
-  .btn-ghost {
-    @apply bg-transparent hover:bg-gray-50 text-gray-600 font-medium py-2 px-4 rounded-lg transition-all duration-200 tap-feedback focus-ring;
-  }
-  
-  /* Clean card styles */
-  .card {
-    @apply bg-white rounded-2xl border border-gray-200 p-6;
+  .card-secondary {
+    background: var(--secondary-bg);
+    color: var(--text-dark);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-subtle);
+    padding: var(--spacing-md);
   }
   
   .card-minimal {
-    @apply bg-white rounded-xl border border-gray-200 p-4;
+    background: var(--primary-bg);
+    color: var(--text-dark);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-light);
+    padding: var(--spacing-md);
   }
   
-  /* Mobile-optimized option buttons */
+  /* Button System */
+  .btn-primary {
+    background: var(--dark-card);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-soft);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .btn-primary:hover {
+    background: var(--dark-card-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .btn-secondary {
+    background: var(--primary-bg);
+    color: var(--text-dark);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .btn-secondary:hover {
+    background: var(--secondary-bg);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-dark);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .btn-ghost:hover {
+    background: var(--secondary-bg);
+  }
+  
+  /* Typography */
+  .text-h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+    margin: 0;
+  }
+  
+  .text-h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-dark);
+    margin: 0;
+  }
+  
+  .text-h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-dark);
+    margin: 0;
+  }
+  
+  .text-body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0;
+  }
+  
+  .text-caption {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #666666;
+    margin: 0;
+  }
+  
+  /* Layout Utilities */
+  .container-minimal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .section-spacing {
+    margin: var(--spacing-xl) 0;
+  }
+  
+  .card-spacing {
+    padding: var(--spacing-md);
+  }
+  
+  /* Form Elements */
+  .input-minimal {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    font-size: 16px;
+    background: var(--primary-bg);
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+  }
+  
+  .input-minimal:focus {
+    outline: none;
+    border-color: var(--dark-card);
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+  }
+  
+  /* Badge System */
+  .badge-minimal {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .badge-dark {
+    background: var(--dark-card);
+    color: var(--text-light);
+  }
+  
+  .badge-light {
+    background: var(--secondary-bg);
+    color: var(--text-dark);
+    border: 1px solid var(--border-subtle);
+  }
+  
+  /* Progress Bar */
+  .progress-minimal {
+    width: 100%;
+    height: 4px;
+    background: var(--secondary-bg);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: var(--dark-card);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  /* Option Buttons for Quiz */
   .option-button {
-    @apply w-full p-4 text-left rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 cursor-pointer font-medium tap-feedback focus-ring;
+    width: 100%;
+    padding: var(--spacing-md);
+    text-align: left;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-subtle);
+    background: var(--primary-bg);
+    color: var(--text-dark);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .option-button:hover {
+    border-color: var(--dark-card);
+    background: var(--secondary-bg);
+    transform: translateY(-1px);
   }
   
   .option-button.selected {
-    @apply border-blue-500 bg-blue-50 text-blue-700;
+    border-color: var(--dark-card);
+    background: var(--secondary-bg);
+    color: var(--text-dark);
   }
   
   .option-button.correct {
-    @apply border-success-500 bg-success-50 text-success-700;
+    border-color: #10b981;
+    background: #f0fdf4;
+    color: #065f46;
   }
   
   .option-button.incorrect {
-    @apply border-error-500 bg-error-50 text-error-700;
-  }
-
-  /* Animation classes */
-  .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+    border-color: #ef4444;
+    background: #fef2f2;
+    color: #991b1b;
   }
   
-  .slide-up {
-    animation: slideUp 0.3s ease-out;
+  /* Hover Effects - Subtle */
+  .hover-lift {
+    transition: transform 0.2s ease;
   }
   
-  .bounce-in {
-    animation: bounceIn 0.6s ease-out;
+  .hover-lift:hover {
+    transform: translateY(-2px);
   }
   
-  .pulse-slow {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  /* Micro-interactions */
-  .tap-feedback {
-    transition: transform 0.1s ease-out;
+  .hover-scale {
+    transition: transform 0.2s ease;
   }
   
-  .tap-feedback:active {
-    transform: scale(0.98);
+  .hover-scale:hover {
+    transform: scale(1.02);
   }
   
-  /* Smooth focus states */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  /* Focus States */
+  .focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
   }
 }
 
+/* Animations - Minimal and Subtle */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -97,31 +332,143 @@
   }
 }
 
-@keyframes slideUp {
+@keyframes scaleIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
 }
 
-@keyframes bounceIn {
-  0% {
+@keyframes slideInLeft {
+  from {
     opacity: 0;
-    transform: scale(0.3);
+    transform: translateX(-20px);
   }
-  50% {
+  to {
     opacity: 1;
-    transform: scale(1.05);
+    transform: translateX(0);
   }
-  70% {
-    transform: scale(0.9);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
   }
-  100% {
+  to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.4s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.4s ease-out;
+}
+
+/* Scroll-triggered animations */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D0D0D0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container-minimal {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .text-h1 {
+    font-size: 2rem;
+  }
+  
+  .text-h2 {
+    font-size: 1.75rem;
+  }
+  
+  .text-h3 {
+    font-size: 1.25rem;
+  }
+  
+  .card-spacing {
+    padding: var(--spacing-sm);
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --border-subtle: #000000;
+    --shadow-soft: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  
+  .card-minimal {
+    border: 2px solid var(--border-subtle);
   }
 }
